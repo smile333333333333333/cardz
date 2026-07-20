@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>H.E.E. Employee Training Simulator</title>
 
 <link rel="stylesheet" href="battle.css">
+
 </head>
 
 <body>
@@ -14,9 +16,32 @@
 <h1>H.E.E. EMPLOYEE TRAINING SIMULATOR</h1>
 
 <p>
-Employees may now participate in voluntary combat simulations to
-improve workplace morale.
+Employees may now participate in voluntary combat simulations
+to improve workplace morale.
+Collect employee cards to unlock new combatants.
 </p>
+
+<!-- ========================= -->
+<!-- CARD PACK SECTION -->
+<!-- ========================= -->
+
+<div id="packSection">
+
+    <button id="openPack">
+        OPEN EMPLOYEE CARD PACK
+    </button>
+
+    <h2>Newest Pack</h2>
+
+    <div id="packCards"></div>
+
+</div>
+
+<hr>
+
+<!-- ========================= -->
+<!-- BATTLE -->
+<!-- ========================= -->
 
 <div id="battleArea">
 
@@ -25,23 +50,17 @@ improve workplace morale.
 <h2>Employee A</h2>
 
 <select id="fighter1">
-
 <option value="">Choose Card</option>
-
 </select>
 
 <div id="stats1" class="stats">
-
 No card selected.
-
 </div>
 
 </div>
 
 <div id="vs">
-
 VS
-
 </div>
 
 <div class="fighter">
@@ -49,15 +68,11 @@ VS
 <h2>Employee B</h2>
 
 <select id="fighter2">
-
 <option value="">Choose Card</option>
-
 </select>
 
 <div id="stats2" class="stats">
-
 No card selected.
-
 </div>
 
 </div>
@@ -65,19 +80,30 @@ No card selected.
 </div>
 
 <button id="fightButton">
-
 RUN SIMULATION
-
 </button>
 
 <div id="result">
-
 Awaiting simulation...
+</div>
+
+<hr>
+
+<!-- ========================= -->
+<!-- COLLECTION -->
+<!-- ========================= -->
+
+<h2>Your Collection</h2>
+
+<div id="collection">
+
+No cards unlocked yet.
 
 </div>
 
 <script src="cards.js"></script>
 <script src="battle.js"></script>
+<script src="collection.js"></script>
 
 </body>
 </html>
