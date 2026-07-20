@@ -23,7 +23,7 @@ Collect employee cards to unlock new combatants.
 <hr>
 
 <!-- ========================= -->
-<!-- CARD PACK SECTION -->
+<!-- PACK SECTION -->
 <!-- ========================= -->
 
 <div id="packSection">
@@ -32,9 +32,40 @@ Collect employee cards to unlock new combatants.
         OPEN EMPLOYEE CARD PACK
     </button>
 
+    <button id="startPackGame">
+        PLAY MINIGAME
+    </button>
+
+    <p id="packStatus">
+        Complete the minigame to earn one pack.
+    </p>
+
     <h2>Newest Pack</h2>
 
     <div id="packCards"></div>
+
+</div>
+
+<hr>
+
+<!-- ========================= -->
+<!-- MINIGAME -->
+<!-- ========================= -->
+
+<div id="miniGame" style="display:none;">
+
+    <h2>Security Check</h2>
+
+    <p>
+        Click the smiling employee before they disappear.
+    </p>
+
+    <button id="targetButton"
+        style="display:none;font-size:24px;padding:20px;">
+        🙂
+    </button>
+
+    <p id="gameMessage"></p>
 
 </div>
 
@@ -60,9 +91,7 @@ Collect employee cards to unlock new combatants.
 
     </div>
 
-    <div id="vs">
-        VS
-    </div>
+    <div id="vs">VS</div>
 
     <div class="fighter">
 
@@ -97,12 +126,15 @@ Collect employee cards to unlock new combatants.
 <h2>Your Collection</h2>
 
 <div id="collection">
-No cards unlocked yet.
+    No cards unlocked yet.
 </div>
 
 <script src="cards.js"></script>
 <script src="collection.js"></script>
 <script src="battle.js"></script>
+
+<!-- Add this only if you have the minigame file -->
+<script src="minigame.js"></script>
 
 </body>
 </html>
