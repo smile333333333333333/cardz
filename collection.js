@@ -1,51 +1,29 @@
 // ======================================
 // H.E.E. CARD COLLECTION
-// Part 1 - Collection Setup
+// PART 1
 // ======================================
 
-const PACK_SIZE = 5;
+const packButton = document.getElementById("openPack");
+const packArea = document.getElementById("packCards");
+const collectionArea = document.getElementById("collection");
 
-// Load unlocked cards
-let unlockedCards =
-JSON.parse(localStorage.getItem("heeUnlockedCards")) || [];
+let unlocked = ["Factory Worker"];
 
-// First time playing
-if(unlockedCards.length === 0){
+// ----------------------------
 
-    unlockedCards.push("Factory Worker");
+function isUnlocked(name){
 
-    saveCollection();
+    return unlocked.includes(name);
 
 }
 
 // ----------------------------
 
-function saveCollection(){
+function unlock(name){
 
-    localStorage.setItem(
-        "heeUnlockedCards",
-        JSON.stringify(unlockedCards)
-    );
+    if(!isUnlocked(name)){
 
-}
-
-// ----------------------------
-
-function isUnlocked(cardName){
-
-    return unlockedCards.includes(cardName);
-
-}
-
-// ----------------------------
-
-function unlockCard(cardName){
-
-    if(!isUnlocked(cardName)){
-
-        unlockedCards.push(cardName);
-
-        saveCollection();
+        unlocked.push(name);
 
         return true;
 
@@ -57,7 +35,7 @@ function unlockCard(cardName){
 
 // ----------------------------
 
-function updateDropdowns(){
+function refreshDropdowns(){
 
     fighter1.innerHTML =
     '<option value="">Choose Card</option>';
@@ -87,23 +65,21 @@ function updateDropdowns(){
 
 // ----------------------------
 
-function updateCollection(){
+function refreshCollection(){
 
-    const collection =
-    document.getElementById("collection");
-
-    collection.innerHTML="";
+    collectionArea.innerHTML="";
 
     cards.forEach(card=>{
 
         const div=document.createElement("div");
 
-        div.style.border="1px solid #555";
-        div.style.padding="10px";
-        div.style.margin="8px";
         div.style.display="inline-block";
         div.style.width="170px";
+        div.style.margin="8px";
+        div.style.padding="10px";
         div.style.background="#222";
+        div.style.border="2px solid #555";
+        div.style.verticalAlign="top";
 
         if(isUnlocked(card.name)){
 
@@ -113,7 +89,7 @@ function updateCollection(){
 
             <b>${card.rarity}</b>
 
-            <br><br>
+            <hr>
 
             ${card.description}
 
@@ -127,13 +103,15 @@ function updateCollection(){
 
             <h3>?????</h3>
 
+            <hr>
+
             Locked
 
             `;
 
         }
 
-        collection.appendChild(div);
+        collectionArea.appendChild(div);
 
     });
 
@@ -141,5 +119,79 @@ function updateCollection(){
 
 // ----------------------------
 
-updateDropdowns();
-updateCollection();
+function randomCard(){
+
+    return cards[
+        Math.floor(
+            Math.random()*cards.length
+        )
+    ];
+
+}
+
+// ----------------------------
+
+refreshDropdowns();
+refreshCollection();
+
+// ======================================
+// H.E.E. CARD COLLECTION
+// PART 2 - OPENING PACKS
+// ======================================
+
+function openPack(){
+
+    packArea.innerHTML = "";
+
+    for(let i=0;i<5;i++){
+
+        const card = randomCard();
+
+        const newCard = unlock(card.name);
+
+        const cardDiv = document.createElement("div");
+
+        cardDiv.style.display = "inline-block";
+        cardDiv.style.width = "180px";
+        cardDiv.style.margin = "10px";
+        cardDiv.style.padding = "10px";
+        cardDiv.style.background = "#222";
+        cardDiv.style.border = "2px solid #666";
+        cardDiv.style.borderRadius = "8px";
+        cardDiv.style.verticalAlign = "top";
+
+        cardDiv.innerHTML = `
+        <h3>${card.name}</h3>
+
+        <b>${card.rarity}</b>
+
+        <hr>
+
+        Strength: ${card.strength}<br>
+        Intelligence: ${card.intelligence}<br>
+        Stability: ${card.stability}<br>
+        Luck: ${card.luck}<br>
+        Speed: ${card.speed}
+
+        <br><br>
+
+        ${card.description}
+
+        <hr>
+
+        <b style="color:${newCard ? "#66ff66" : "#ffcc55"}">
+        ${newCard ? "★ NEW CARD!" : "Duplicate"}
+        </b>
+        `;
+
+        packArea.appendChild(cardDiv);
+
+    }
+
+    refreshCollection();
+
+    refreshDropdowns();
+
+}
+
+packButton.addEventListener("click", openPack);
