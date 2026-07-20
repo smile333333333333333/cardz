@@ -24,7 +24,67 @@ Collect employee cards to unlock new combatants.
 <!-- ========================= -->
 <!-- CARD PACK SECTION -->
 <!-- ========================= -->
+// ======================================
+// H.E.E. CARD COLLECTION
+// PART 2 - OPENING PACKS
+// ======================================
 
+function openPack(){
+
+    packArea.innerHTML = "";
+
+    for(let i=0;i<5;i++){
+
+        const card = randomCard();
+
+        const newCard = unlock(card.name);
+
+        const cardDiv = document.createElement("div");
+
+        cardDiv.style.display = "inline-block";
+        cardDiv.style.width = "180px";
+        cardDiv.style.margin = "10px";
+        cardDiv.style.padding = "10px";
+        cardDiv.style.background = "#222";
+        cardDiv.style.border = "2px solid #666";
+        cardDiv.style.borderRadius = "8px";
+        cardDiv.style.verticalAlign = "top";
+
+        cardDiv.innerHTML = `
+        <h3>${card.name}</h3>
+
+        <b>${card.rarity}</b>
+
+        <hr>
+
+        Strength: ${card.strength}<br>
+        Intelligence: ${card.intelligence}<br>
+        Stability: ${card.stability}<br>
+        Luck: ${card.luck}<br>
+        Speed: ${card.speed}
+
+        <br><br>
+
+        ${card.description}
+
+        <hr>
+
+        <b style="color:${newCard ? "#66ff66" : "#ffcc55"}">
+        ${newCard ? "★ NEW CARD!" : "Duplicate"}
+        </b>
+        `;
+
+        packArea.appendChild(cardDiv);
+
+    }
+
+    refreshCollection();
+
+    refreshDropdowns();
+
+}
+
+packButton.addEventListener("click", openPack);
 <div id="packSection">
 
     <button id="openPack">
