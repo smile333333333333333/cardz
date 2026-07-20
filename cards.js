@@ -249,7 +249,7 @@ const cards = [
     luck: 7,
     speed: 7,
     description: "Every report ends with an approved signature."
-}
+},
     
 {
     name:"Employee RE",
