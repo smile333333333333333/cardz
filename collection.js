@@ -1,20 +1,18 @@
 // ======================================
 // H.E.E. CARD COLLECTION
-// PART 1
 // ======================================
 
 const packButton = document.getElementById("openPack");
 const packArea = document.getElementById("packCards");
 const collectionArea = document.getElementById("collection");
+const packStatus = document.getElementById("packStatus");
 
 let unlocked = ["Factory Worker"];
 
 // ----------------------------
 
 function isUnlocked(name){
-
     return unlocked.includes(name);
-
 }
 
 // ----------------------------
@@ -22,15 +20,11 @@ function isUnlocked(name){
 function unlock(name){
 
     if(!isUnlocked(name)){
-
         unlocked.push(name);
-
         return true;
-
     }
 
     return false;
-
 }
 
 // ----------------------------
@@ -67,11 +61,11 @@ function refreshDropdowns(){
 
 function refreshCollection(){
 
-    collectionArea.innerHTML="";
+    collectionArea.innerHTML = "";
 
     cards.forEach(card=>{
 
-        const div=document.createElement("div");
+        const div = document.createElement("div");
 
         div.style.display="inline-block";
         div.style.width="170px";
@@ -84,7 +78,6 @@ function refreshCollection(){
         if(isUnlocked(card.name)){
 
             div.innerHTML=`
-
             <h3>${card.name}</h3>
 
             <b>${card.rarity}</b>
@@ -92,21 +85,16 @@ function refreshCollection(){
             <hr>
 
             ${card.description}
-
             `;
 
-        }
-
-        else{
+        }else{
 
             div.innerHTML=`
-
             <h3>?????</h3>
 
             <hr>
 
             Locked
-
             `;
 
         }
@@ -122,9 +110,7 @@ function refreshCollection(){
 function randomCard(){
 
     return cards[
-        Math.floor(
-            Math.random()*cards.length
-        )
+        Math.floor(Math.random()*cards.length)
     ];
 
 }
@@ -135,11 +121,26 @@ refreshDropdowns();
 refreshCollection();
 
 // ======================================
-// H.E.E. CARD COLLECTION
-// PART 2 - OPENING PACKS
+// OPEN PACK
 // ======================================
 
 function openPack(){
+
+    if(typeof packTickets === "undefined" || packTickets <= 0){
+
+        alert("Complete the minigame before opening a pack!");
+        return;
+
+    }
+
+    packTickets--;
+
+    if(packStatus){
+        packStatus.textContent =
+        "Complete the minigame to earn another pack.";
+    }
+
+    packButton.disabled = true;
 
     packArea.innerHTML = "";
 
@@ -151,16 +152,16 @@ function openPack(){
 
         const cardDiv = document.createElement("div");
 
-        cardDiv.style.display = "inline-block";
-        cardDiv.style.width = "180px";
-        cardDiv.style.margin = "10px";
-        cardDiv.style.padding = "10px";
-        cardDiv.style.background = "#222";
-        cardDiv.style.border = "2px solid #666";
-        cardDiv.style.borderRadius = "8px";
-        cardDiv.style.verticalAlign = "top";
+        cardDiv.style.display="inline-block";
+        cardDiv.style.width="180px";
+        cardDiv.style.margin="10px";
+        cardDiv.style.padding="10px";
+        cardDiv.style.background="#222";
+        cardDiv.style.border="2px solid #666";
+        cardDiv.style.borderRadius="8px";
+        cardDiv.style.verticalAlign="top";
 
-        cardDiv.innerHTML = `
+        cardDiv.innerHTML=`
         <h3>${card.name}</h3>
 
         <b>${card.rarity}</b>
@@ -189,7 +190,6 @@ function openPack(){
     }
 
     refreshCollection();
-
     refreshDropdowns();
 
 }
