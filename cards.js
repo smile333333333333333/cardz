@@ -1,6 +1,257 @@
 const cards = [
 
 {
+    name: "Night Janitor",
+    rarity: "Common",
+    strength: 4,
+    intelligence: 5,
+    stability: 8,
+    luck: 3,
+    speed: 4,
+    description: "Cleans the halls after everyone leaves."
+},
+{
+    name: "Intern",
+    rarity: "Common",
+    strength: 2,
+    intelligence: 5,
+    stability: 6,
+    luck: 8,
+    speed: 6,
+    description: "Still believes this is a normal job."
+},
+{
+    name: "Maintenance Worker",
+    rarity: "Common",
+    strength: 6,
+    intelligence: 5,
+    stability: 7,
+    luck: 4,
+    speed: 4,
+    description: "Keeps every locked door locked."
+},
+{
+    name: "Receptionist",
+    rarity: "Common",
+    strength: 3,
+    intelligence: 7,
+    stability: 8,
+    luck: 5,
+    speed: 5,
+    description: "Answers every phone call with a smile."
+},
+{
+    name: "Archive Clerk",
+    rarity: "Common",
+    strength: 3,
+    intelligence: 8,
+    stability: 6,
+    luck: 5,
+    speed: 3,
+    description: "Files records that officially never existed."
+},
+{
+    name: "Supply Runner",
+    rarity: "Uncommon",
+    strength: 5,
+    intelligence: 5,
+    stability: 6,
+    luck: 7,
+    speed: 9,
+    description: "Knows every hallway by memory."
+},
+{
+    name: "Security Officer",
+    rarity: "Uncommon",
+    strength: 8,
+    intelligence: 6,
+    stability: 7,
+    luck: 3,
+    speed: 6,
+    description: "Never asks what's behind Door 7."
+},
+{
+    name: "Containment Specialist",
+    rarity: "Uncommon",
+    strength: 7,
+    intelligence: 8,
+    stability: 7,
+    luck: 3,
+    speed: 5,
+    description: "Responds when something escapes."
+},
+{
+    name: "Radio Operator",
+    rarity: "Uncommon",
+    strength: 3,
+    intelligence: 8,
+    stability: 7,
+    luck: 6,
+    speed: 5,
+    description: "Sometimes receives calls from empty rooms."
+},
+{
+    name: "Courier",
+    rarity: "Uncommon",
+    strength: 5,
+    intelligence: 6,
+    stability: 6,
+    luck: 8,
+    speed: 8,
+    description: "Delivers sealed envelopes without opening them."
+},
+{
+    name: "Research Assistant",
+    rarity: "Rare",
+    strength: 4,
+    intelligence: 9,
+    stability: 6,
+    luck: 4,
+    speed: 5,
+    description: "Writes reports nobody is allowed to read."
+},
+{
+    name: "Hazmat Technician",
+    rarity: "Rare",
+    strength: 7,
+    intelligence: 8,
+    stability: 8,
+    luck: 2,
+    speed: 5,
+    description: "Suit integrity: 99.9%."
+},
+{
+    name: "Emergency Response",
+    rarity: "Rare",
+    strength: 8,
+    intelligence: 7,
+    stability: 8,
+    luck: 3,
+    speed: 7,
+    description: "Arrives after the alarms stop."
+},
+{
+    name: "Systems Engineer",
+    rarity: "Rare",
+    strength: 4,
+    intelligence: 10,
+    stability: 6,
+    luck: 4,
+    speed: 5,
+    description: "Keeps every camera online."
+},
+{
+    name: "Supervisor",
+    rarity: "Rare",
+    strength: 7,
+    intelligence: 8,
+    stability: 8,
+    luck: 5,
+    speed: 6,
+    description: "Has access to every floor except one."
+},
+{
+    name: "Facility Director",
+    rarity: "Epic",
+    strength: 8,
+    intelligence: 10,
+    stability: 9,
+    luck: 5,
+    speed: 6,
+    description: "Knows the official version of every incident."
+},
+{
+    name: "Elite Containment Unit",
+    rarity: "Epic",
+    strength: 10,
+    intelligence: 8,
+    stability: 8,
+    luck: 4,
+    speed: 8,
+    description: "Called only when all other plans fail."
+},
+{
+    name: "The Archivist",
+    rarity: "Epic",
+    strength: 5,
+    intelligence: 10,
+    stability: 10,
+    luck: 6,
+    speed: 4,
+    description: "Remembers records that no longer exist."
+},
+{
+    name: "Observation Team Leader",
+    rarity: "Epic",
+    strength: 8,
+    intelligence: 9,
+    stability: 9,
+    luck: 4,
+    speed: 7,
+    description: "Watches without ever being seen."
+},
+{
+    name: "Prototype Employee",
+    rarity: "Epic",
+    strength: 9,
+    intelligence: 7,
+    stability: 5,
+    luck: 7,
+    speed: 9,
+    description: "Officially retired from testing."
+},
+{
+    name: "Employee RE",
+    rarity: "Legendary",
+    strength: 9,
+    intelligence: 10,
+    stability: 2,
+    luck: 8,
+    speed: 8,
+    description: "Personnel file permanently removed."
+},
+{
+    name: "Factory Survivor",
+    rarity: "Legendary",
+    strength: 10,
+    intelligence: 9,
+    stability: 1,
+    luck: 9,
+    speed: 9,
+    description: "Claims to remember what was inside."
+},
+{
+    name: "Smiling One",
+    rarity: "Legendary",
+    strength: 10,
+    intelligence: 6,
+    stability: 0,
+    luck: 8,
+    speed: 10,
+    description: "Do not maintain eye contact."
+},
+{
+    name: "THE FACTORY",
+    rarity: "Legendary",
+    strength: 10,
+    intelligence: 10,
+    stability: 10,
+    luck: 10,
+    speed: 10,
+    description: "Some things should never become collectible."
+},
+{
+    name: "H.E.E. Director",
+    rarity: "Legendary",
+    strength: 9,
+    intelligence: 10,
+    stability: 10,
+    luck: 7,
+    speed: 7,
+    description: "Every report ends with an approved signature."
+}
+    
+{
     name:"Employee RE",
     rarity:"Legendary",
     strength:70,
